@@ -22,7 +22,7 @@ function renderOnePost(post) {
     card.innerHTML = `
     <img src="${post.jetpack_featured_media_url}">
     <divclass="content">
-        <h4>${post.title.rendered}</h4>
+        <h5>${post.title.rendered}</h5>
         <h6>${post.excerpt.rendered}</h6>
         <a href=${post.link} target="_blank" class="view">View Article</a>
     </div>
