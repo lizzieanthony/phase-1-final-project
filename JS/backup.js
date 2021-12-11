@@ -1,3 +1,7 @@
+
+//---- THIS IS MY BACKUO JS FILE FOR CODE I WAS RE WORKING OR DIDNT END UP USING --//
+
+
 document.addEventListener("DOMContentLoaded", () => {
     renderHomePage();
     getAllPosts()
@@ -5,15 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed")
     
 })
-//call what youure fetching, invoke it, write ind.
-
-
-//****  Globals ****//
-
-
-
-
-//**** Templates ****//
+//call what youure fetching, invoke it, write 
 
 const homePageTemplate = () => {
     return `
@@ -25,7 +21,7 @@ function renderOnePost(post){
 let card = document.createElement('li')
 card.className = 'card'
 card.innerHTML = `
-<img src="${}"
+<img src="${link}"
 `
 }
 
@@ -41,17 +37,11 @@ const renderHomePage = () => {
     mainDiv().innerHTML = homePageTemplate();
 }
 
-
-
 //**** Node Getters ****//
 const mainDiv = () => document.getElementById("main");
 
 
 //**** When the DOM loads ****//
-
-
-
-
 function getAllPosts() {
     fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
     .then(res => res.json())
@@ -91,4 +81,4 @@ function displaySearchResults()  {
         return result.card
     })}
 
-<a class="btn-floating btn-large halfway-fab waves-effect waves-light red" id="btn"><i class="material-icons">add</i></a>
+(<a class="btn-floating btn-large halfway-fab waves-effect waves-light red" id="btn"><i class="material-icons">add</i></a>)}
