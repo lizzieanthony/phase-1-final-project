@@ -1,98 +1,61 @@
 body {
-    margin: 0;
-    font-family: veranda;
-    background-color: #6C5B7B
-  }
-  
-  #recipe-header {
-    text-align: center;
-    background: #C06C84;
-    height: 1rem;
-    padding: 3rem;
-    justify-content: center;
-    display: flex;
-    color: #6C5B7B;
-    font-size: 100%;
-  }
-  
-  
-  #toy-collection {
-    margin: 2rem;
-  }
-  
-  .card {
-    text-align: center;
-    border: #C06C84 1px;
-    padding: 1rem;
-    width: 15rem;
-    height: 25rem;
-    display: inline-grid;
-    margin: 1rem 2rem;
-    box-shadow: 3px 4px #6C5B7B
-  }
-  
-  .toy-avatar {
-    justify-self: center;
-    height: 12rem;
-    width: auto;
-  }
-  
-  button {
-    position: relative;
-    background-color: #355C7D;
-    border: none;
-    border-radius: 12px;
-    height: 3rem;
-    width: max-content;
-    color: #99B898;
-    font-size: 18px;
-    justify-self: center;
-  }
-  
-  button:hover {
-    background-color: #6C5B7B;
-    border: #F67280 solid 1px;
-    color: #F67280;
-  }
-  
-  .container {
-    padding: 1rem;
-    width: stretch;
-    height: auto;
-    display: none;
-    background: #515DA2;
-    opacity: .8;
-  }
-  
-  .add-toy-form {
-    width: 80%
-  }
-  
-  .submit {
-    position: relative;
-    background-color: #e04b52;
-    border-radius: 5px;
-    height: 2rem;
-    width: max-content;
-    color: whitesmoke;
-    font-size: 18px;
-    justify-self: center;
-    font-family: monospace;
-    margin: 3px;
-  }
-  
-  .submit:hover {
-    background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
-  }
-  
-  
-  .input-text {
-    border-radius: 5px;
-    height: 2rem;
-    width: 60%;
-    font-size: 18px;
-    font-family: monospace;
-    margin: 3px;
-  }
+  background-color: #651c32;
+  color: #ef6079
+}
+
+.title {
+  color: #651c32;
+  font-size: 34px;
+}
+.saved {
+  color: #651c32;
+  font-size: 16px;
+}
+
+.nav-bar {
+  background-color: #ef6079;
+  color: #651c32
+}
+
+.card {
+  /* background-color: #596f62; */
+  color: black
+
+}
+
+.everything-container {
+  background-color: #f6edee;
+}
+
+.row {
+position: absolute;
+left: 40%;
+right: 40%;
+margin: auto
+}
+
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.button {
+  display: inline;
+  justify-content: flex-end;
+  margin-left: 1090px;
+  margin-bottom: 10px;
+  background-color: #ef6079;
+  color: #651c32;
+  font-size: 16px;
+
+
+}
+
+.view {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+padding how to apply padding to each card asnd why therey different 

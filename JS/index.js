@@ -1,21 +1,58 @@
-document.addEventListener("DOMContentLoaded", 90 => {
-    const addBtn = document.querySelector("#recipe-button")
+document.addEventListener('DOMContentLoaded', function() {
+    getAllPosts();
 })
 
-fetch("https://api.disneyapi.dev/characters")
+function renderOnePost(post) {
+    let card = document.createElement('div')
+    let btn = document.createElement('button')
+    //console.log(card);
+    card.className = 'card'
+    card.innerHTML = `
+    <img src="${post.jetpack_featured_media_url}">
+    <divclass="content">
+        <h4>${post.title.rendered}</h4>
+        <h6>${post.excerpt.rendered}</h6>
+        <a href=${post.link} target="_blank" class="view">View Article</a>
+    </div>
+    `
+    btn.textContent = "Save For Later"
+    btn.className = "button"
 
-//  Globals //
+    btn.addEventListener('click', function() {
+          renderOnePost(post)
+        })
 
-const containerDiv = () => document.getElementById("container");
+    card.appendChild(btn)
 
+    //grab button and attach it here event listner 
 
-// Templates ??
+    document.querySelector("#post-container").appendChild(card)
+    //card.querySelectorlector("a")
+}
+let posts = []
 
-const homePageTemplate= () => {
-    return ``
+function getAllPosts() {
+    fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
+    .then(res => res.json())
+    .then(postData => {
+        posts = postData
+        posts.forEach(post => renderOnePost(post))
+    })
+
 }
 
-// Node Getters //
+const inputText = document.getElementById('input-text')
 
-
+inputText.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    document.querySelector("#post-container").innerHTML = "" 
+    const filteredPosts = posts.filter((post) => {
+        return(
+            post.title.rendered.toLowerCase().includes(searchString) ||
+            post.excerpt.rendered.toLowerCase().includes(searchString)
+        );
+    })
+    //console.log(filteredPosts)
+    filteredPosts.forEach(post => renderOnePost(post))
+});
 
