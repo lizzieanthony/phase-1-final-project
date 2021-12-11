@@ -1,11 +1,23 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     getAllPosts();
 })
 
+let posts = []
+
+function getAllPosts() {
+    fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
+    .then(res => res.json())
+    .then(postData => {
+        posts = postData
+        posts.forEach(post => renderOnePost(post))
+    })
+
+}
+
 function renderOnePost(post) {
     let card = document.createElement('div')
     let btn = document.createElement('button')
-    //console.log(card);
     card.className = 'card'
     card.innerHTML = `
     <img src="${post.jetpack_featured_media_url}">
@@ -24,21 +36,7 @@ function renderOnePost(post) {
 
     card.appendChild(btn)
 
-    //grab button and attach it here event listner 
-
     document.querySelector("#post-container").appendChild(card)
-    //card.querySelectorlector("a")
-}
-let posts = []
-
-function getAllPosts() {
-    fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
-    .then(res => res.json())
-    .then(postData => {
-        posts = postData
-        posts.forEach(post => renderOnePost(post))
-    })
-
 }
 
 const inputText = document.getElementById('input-text')
@@ -52,7 +50,6 @@ inputText.addEventListener('keyup', (e) => {
             post.excerpt.rendered.toLowerCase().includes(searchString)
         );
     })
-    //console.log(filteredPosts)
     filteredPosts.forEach(post => renderOnePost(post))
 });
 
