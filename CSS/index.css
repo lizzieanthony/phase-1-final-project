@@ -1,10 +1,14 @@
+
+.text-color{
+  color: #651c32;
+}
+
 body {
   background-color: #651c32;
   color: #ef6079
 }
 
 .title {
-  color: #651c32;
   font-size: 34px;
 }
 .saved {
@@ -58,4 +62,4 @@ img {
   margin-bottom: 10px;
   margin-left: 10px;
 }
-padding how to apply padding to each card asnd why therey different 
+/* padding how to apply padding to each card asnd why therey different  */

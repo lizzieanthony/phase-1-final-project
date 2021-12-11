@@ -25,7 +25,7 @@ function renderOnePost(post){
 let card = document.createElement('li')
 card.className = 'card'
 card.innerHTML = `
-<img src="${}
+<img src="${}"
 `
 }
 
@@ -91,4 +91,4 @@ function displaySearchResults()  {
         return result.card
     })}
 
-<a class="btn-floating btn-large halfway-fab waves-effect waves-light red" id=btn><i class="material-icons">add</i></a>
+<a class="btn-floating btn-large halfway-fab waves-effect waves-light red" id="btn"><i class="material-icons">add</i></a>
