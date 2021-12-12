@@ -1,18 +1,25 @@
 
+let savedPosts=[]
+let posts = []
+const inputText = document.getElementById('input-text')
+
+//not relying on data coming from an api 
 document.addEventListener('DOMContentLoaded', function() {
     getAllPosts();
+    renderSaved();
 })
-
-let posts = []
 
 function getAllPosts() {
     fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
     .then(res => res.json())
     .then(postData => {
         posts = postData
-        posts.forEach(post => renderOnePost(post))
+        posts.forEach(post => {
+            post = {...post,saved: false }
+            renderOnePost(post)
+        })
+        //addButtonListner();
     })
-
 }
 
 function renderOnePost(post) {
@@ -30,16 +37,27 @@ function renderOnePost(post) {
     btn.textContent = "Save For Later"
     btn.className = "button"
 
-    btn.addEventListener('click', function() {
-          renderOnePost(post)
-        })
-
     card.appendChild(btn)
 
     document.querySelector("#post-container").appendChild(card)
+
+    btn.addEventListener('click', e => likedPost(card))
 }
 
-const inputText = document.getElementById('input-text')
+//saves card to a global variable called savedPosts
+function likedPost(card){
+    savedPosts.push(card)
+    console.log(savedPosts)
+}
+
+// appends "clicked" cards to page and removes unclicked- replaces current cards with cards currently saved in the global variable 
+function renderSaved(){
+    let saved = document.getElementById("saved")
+    saved.addEventListener('click', () => {
+    document.querySelector("#post-container").innerHTML = ""  
+    savedPosts.forEach(post => document.querySelector("#post-container").append(post))
+    })
+}
 
 inputText.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();

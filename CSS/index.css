@@ -5,20 +5,22 @@
 
 body {
   background-color: #651c32;
-  color: #ef6079
+  color: #ef6079;
+  z-index: 1;
 }
 
 .title {
   font-size: 34px;
 }
-.saved {
+#saved {
   color: #651c32;
   font-size: 16px;
 }
 
 .nav-bar {
   background-color: #ef6079;
-  color: #651c32
+  color: #651c32; 
+  z-index: 4;
 }
 
 .card {
@@ -70,7 +72,7 @@ h5{
   padding-right: 20px;
 }
 
-p{
+p {
   padding-left: 40px;
   padding-right: 40px;
 }

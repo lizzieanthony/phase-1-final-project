@@ -82,3 +82,11 @@ function displaySearchResults()  {
     })}
 
 (<a class="btn-floating btn-large halfway-fab waves-effect waves-light red" id="btn"><i class="material-icons">add</i></a>)}
+
+function addButtonListner(){
+    let buttons = document.getElementsByClassName('button')
+    for (const button of buttons) {
+        //console.log(button)
+        button.addEventListener('click', (card) => likedPost(card))
+    }
+}
