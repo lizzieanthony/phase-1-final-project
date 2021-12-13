@@ -2,7 +2,7 @@
 
 This is a simple website that utilizes the [WordPress Posts API](https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed) and allows you to search, save, and view articles published on WordPress.
 
-You can also [watch a short walkthrough]("") of the project here
+You can also [watch a short walkthrough](https://www.loom.com/share/6263bf38e5384d89a95a7bf816c2bc3e) of the project here
 
 ## Get your own copy
 To create your own copy of this project:
