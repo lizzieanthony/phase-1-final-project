@@ -65,7 +65,7 @@ function likedPost(card){
     console.log(savedPosts)
 }
 
-// appends "clicked" cards to page and removes unclicked- replaces current cards with cards currently saved in the global variable 
+// appends "clicked" cards to page via savedPosts and removes unclicked
 function renderSaved(){
     let saved = document.getElementById("saved")
     saved.addEventListener('click', () => {

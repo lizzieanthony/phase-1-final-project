@@ -1,7 +1,6 @@
 
 //---- THIS IS MY BACKUO JS FILE FOR CODE I WAS RE WORKING OR DIDNT END UP USING --//
 
-
 document.addEventListener("DOMContentLoaded", () => {
     renderHomePage();
     getAllPosts()
@@ -25,13 +24,11 @@ card.innerHTML = `
 `
 }
 
-
 function initialize(){
     getAllPosts()
 .forEach(post => renderOnePost(post))
 }
 initialize()
-
 
 const renderHomePage = () => {
     mainDiv().innerHTML = homePageTemplate();
@@ -69,7 +66,6 @@ function displaySearchResults()  {
         //return that card  
 
 })
-
 
 function displaySearchResults()  { 
     let x = document.getElementById("input-text");
