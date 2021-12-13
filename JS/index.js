@@ -1,6 +1,6 @@
 
 let savedPosts=[]
-let posts = []
+let posts = [] 
 const inputText = document.getElementById('input-text')
 
 //not relying on data coming from an api 
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderSaved();
 })
 
+//fetching data from api 
 function getAllPosts() {
     fetch('https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed')
     .then(res => res.json())
@@ -18,10 +19,10 @@ function getAllPosts() {
             post = {...post,saved: false }
             renderOnePost(post)
         })
-        //addButtonListner();
     })
 }
 
+//elements to create one card with title, image, excerpt, link, and button 
 function renderOnePost(post) {
     let card = document.createElement('div')
     let btn = document.createElement('button')
@@ -44,6 +45,20 @@ function renderOnePost(post) {
     btn.addEventListener('click', e => likedPost(card))
 }
 
+//compares values typed into the search par to the elements in title & excerpt 
+//returns only cards matching those search elemnts and clears the rest 
+inputText.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    document.querySelector("#post-container").innerHTML = "" 
+    const filteredPosts = posts.filter((post) => {
+        return(
+            post.title.rendered.toLowerCase().includes(searchString) ||
+            post.excerpt.rendered.toLowerCase().includes(searchString)
+        );
+    })
+    filteredPosts.forEach(post => renderOnePost(post))
+});
+
 //saves card to a global variable called savedPosts
 function likedPost(card){
     savedPosts.push(card)
@@ -58,16 +73,3 @@ function renderSaved(){
     savedPosts.forEach(post => document.querySelector("#post-container").append(post))
     })
 }
-
-inputText.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-    document.querySelector("#post-container").innerHTML = "" 
-    const filteredPosts = posts.filter((post) => {
-        return(
-            post.title.rendered.toLowerCase().includes(searchString) ||
-            post.excerpt.rendered.toLowerCase().includes(searchString)
-        );
-    })
-    filteredPosts.forEach(post => renderOnePost(post))
-});
-
