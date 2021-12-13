@@ -42,7 +42,7 @@ function renderOnePost(post) {
 
     document.querySelector("#post-container").appendChild(card)
 
-    btn.addEventListener('click', e => likedPost(card))
+    btn.addEventListener('click', e => likedPost(card)) 
 }
 
 //compares values typed into the search par to the elements in title & excerpt 
